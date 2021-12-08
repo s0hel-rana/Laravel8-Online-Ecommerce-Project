@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Home</title>	
+	<title>Home</title>
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico">
 	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,400italic,700,700italic,900,900italic&amp;subset=latin,latin-ext" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Open%20Sans:300,400,400italic,600,600italic,700,700italic&amp;subset=latin,latin-ext" rel="stylesheet">
@@ -37,13 +37,13 @@
 						<div class="topbar-menu left-menu">
 							<ul>
 								<li class="menu-item" >
-									<a title="Hotline: (+123) 456 789" href="#" ><span class="icon label-before fa fa-mobile"></span>Hotline: (+123) 456 789</a>
+									<a title="Hotline: (+88) 1911153010" href="#" ><span class="icon label-before fa fa-mobile"></span>Hotline: (+88) 1911153010</a>
 								</li>
 							</ul>
 						</div>
 						<div class="topbar-menu right-menu">
 							<ul>
-								
+
 								<li class="menu-item lang-menu menu-item-has-children parent">
 									<a title="English" href="#"><span class="img label-before"><img src="{{ asset('assets/images/lang-en.png') }}" alt="lang-en"></span>English<i class="fa fa-angle-down" aria-hidden="true"></i></a>
 									<ul class="submenu lang" >
@@ -79,13 +79,19 @@
 													<li class="menu-item" >
 														<a title="Category" href="{{ route('admin.category') }}">Category</a>
 													</li>
+                                                    <li class="menu-item" >
+														<a title="Products" href="{{ route('admin.product') }}">All Product</a>
+													</li>
+                                                    <li class="menu-item" >
+														<a title="Manage Home Slider" href="{{ route('admin.homeslider') }}">Manage Home Slider</a>
+													</li>
 													<li class="menu-item" >
 														<a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" >Logout</a>
 													</li>
 													<form id="logout-form" action="{{ route('logout') }}" method="POST">
 														@csrf
 													</form>
-													
+
 												</ul>
 											</li>
 										@else
@@ -101,14 +107,14 @@
 													<form id="logout-form" action="{{ route('logout') }}" method="POST">
 														@csrf
 													</form>
-													
+
 												</ul>
 											</li>
 										@endif
 									@else
-											
+
 										<li class="menu-item" ><a title="Register or Login" href="{{ route('login') }}">Login</a></li>
-										<li class="menu-item" ><a title="Register or Login" href="{{ route('register') }}">Register</a></li>	
+										<li class="menu-item" ><a title="Register or Login" href="{{ route('register') }}">Register</a></li>
 
 									@endif
 								@endif
@@ -121,11 +127,11 @@
 					<div class="mid-section main-info-area">
 
 						<div class="wrap-logo-top left-section">
-							<a href="index.html" class="link-to-home"><img src="{{ asset('assets/images/logo-top-1.png') }}" alt="mercado"></a>
+							<a href="index.html" class="link-to-home"><img src="{{ asset('assets/images/dots.jpg') }}" alt="mercado"></a>
 						</div>
 
 						@livewire('header-search-component')
-						
+
 						<div class="wrap-icon right-section">
 							<div class="wrap-icon-section wishlist">
 								<a href="#" class="link-direction">
@@ -141,7 +147,7 @@
 									<i class="fa fa-shopping-basket" aria-hidden="true"></i>
 									<div class="left-info">
 										@if(Cart::count()>0)
-										
+
 										<span class="index">{{ Cart::count() }} items</span>
 										@endif
 										<span class="title">CART</span>
@@ -193,7 +199,7 @@
 								</li>
 								<li class="menu-item">
 									<a href="contact-us.html" class="link-term mercado-item-title">Contact Us</a>
-								</li>																	
+								</li>
 							</ul>
 						</div>
 					</div>
@@ -270,7 +276,7 @@
 											<li>
 												<i class="fa fa-envelope" aria-hidden="true"></i>
 												<p class="contact-txt">Contact@yourcompany.com</p>
-											</li>											
+											</li>
 										</ul>
 									</div>
 								</div>
@@ -440,15 +446,15 @@
 			<div class="coppy-right-box">
 				<div class="container">
 					<div class="coppy-right-item item-left">
-						<p class="coppy-right-text">Copyright © 2020 Surfside Media. All rights reserved</p>
+						<p class="coppy-right-text">Copyright © 2021 SOhel Rana. All rights reserved</p>
 					</div>
 					<div class="coppy-right-item item-right">
 						<div class="wrap-nav horizontal-nav">
 							<ul>
-								<li class="menu-item"><a href="about-us.html" class="link-term">About us</a></li>								
+								<li class="menu-item"><a href="about-us.html" class="link-term">About us</a></li>
 								<li class="menu-item"><a href="privacy-policy.html" class="link-term">Privacy Policy</a></li>
 								<li class="menu-item"><a href="terms-conditions.html" class="link-term">Terms & Conditions</a></li>
-								<li class="menu-item"><a href="return-policy.html" class="link-term">Return Policy</a></li>								
+								<li class="menu-item"><a href="return-policy.html" class="link-term">Return Policy</a></li>
 							</ul>
 						</div>
 					</div>
@@ -457,7 +463,7 @@
 			</div>
 		</div>
 	</footer>
-	
+
 	<script src="{{ asset('assets/js/jquery-1.12.4.minb8ff.js?ver=1.12.4') }}"></script>
 	<script src="{{ asset('assets/js/jquery-ui-1.12.4.minb8ff.js?ver=1.12.4') }}"></script>
 	<script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
