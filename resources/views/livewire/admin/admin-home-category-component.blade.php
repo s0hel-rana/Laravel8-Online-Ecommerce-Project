@@ -24,7 +24,8 @@
                                     <label class="col-md-4 control-label">No Of Products</label><br>
                                     <input type="text" class="form-control input-md" wire:model="numberofproducts"><br>
                                     <button type="submit" class="btn btn-primary">Save</button>
-                             </div>
+                                </div>
+                            </div>
                         </form>
                     </div>
                 </div>
