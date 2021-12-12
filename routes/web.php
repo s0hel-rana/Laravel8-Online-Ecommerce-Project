@@ -3,6 +3,7 @@ use App\Http\Livewire\Admin\AdminEditCategoryComponent;
 use App\Http\Livewire\Admin\AdminAddCategoryComponent;
 use App\Http\Livewire\Admin\AdminAddHomeSliderComponent;
 use App\Http\Livewire\Admin\AdminAddProductComponent;
+use App\Http\Livewire\Admin\AdminContactComponent;
 use App\Http\Livewire\Admin\AdminEditHomeSliderComponent;
 use App\Http\Livewire\Admin\AdminEditProductComponent;
 use App\Http\Livewire\Admin\AdminHomeCategoryComponent;
@@ -17,6 +18,7 @@ use App\Http\Livewire\CheckoutComponent;
 use App\Http\Livewire\UserDashboardComponent;
 use App\Http\Livewire\AdminDashboardComponent;
 use App\Http\Livewire\CategoryComponent;
+use App\Http\Livewire\ContactComponent;
 use App\Http\Livewire\DetailsComponent;
 use App\Http\Livewire\SearchComponent;
 
@@ -43,6 +45,8 @@ Route::get('/cart',CartComponent::class)->name('product.cart');
 
 Route::get('/checkout',CheckoutComponent::class);
 
+Route::get('/contact_us',ContactComponent::class)->name('contact');
+
 Route::get('/products/details/{slug}',DetailsComponent::class)->name('product.details');
 
 Route::get('/products-category/{category_slug}',CategoryComponent::class)->name('product.category');
@@ -68,6 +72,7 @@ Route::middleware(['auth:sanctum', 'verified','authadmin'])->group(function(){
     Route::get('/admin.edit/home-slider/{slide_id}',AdminEditHomeSliderComponent::class)->name('admin.edithomeslider');
 
     Route::get('/admin/hone-categories',AdminHomeCategoryComponent::class)->name('admin.home-categories');
+    Route::get('/admin.contact_us',AdminContactComponent::class)->name('admin.contact');
 });
 
 //route for user/customer
