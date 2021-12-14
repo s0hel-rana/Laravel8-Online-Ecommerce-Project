@@ -19,20 +19,20 @@
                                 <form wire:submit.prevent="storeCategory">
                                     <div class="form-group">
                                         <label for="category">Category Name</label>
-                                        <input type="text" class="form-control" id="category" aria-describedby="emailHelp" placeholder="input category name"  wire:model='name' wire:keyup="generateSlug" required>
-                                        
+                                        <input type="text" class="form-control" id="category" aria-describedby="emailHelp" placeholder="Category name"  wire:model='name' wire:keyup="generateSlug" required>
+
                                     </div>
                                     <div class="form-group">
                                         <label for="slug">Slug</label>
-                                        <input type="text" class="form-control" id="slug" aria-describedby="emailHelp" placeholder="input slug" wire:model="slug">
-                                        
+                                        <input type="text" class="form-control" id="slug" aria-describedby="emailHelp" placeholder="Category slug" wire:model="slug">
+
                                     </div>
                                     <div class="form-group">
-                                        
+
                                        <button type="submit" class="btn btn-primary">Submit</button>
-                                        
+
                                     </div>
-                                    
+
                                 </form>
                             </div>
                         </div>

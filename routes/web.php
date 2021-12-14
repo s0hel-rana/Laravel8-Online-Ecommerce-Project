@@ -22,6 +22,7 @@ use App\Http\Livewire\CategoryComponent;
 use App\Http\Livewire\ContactComponent;
 use App\Http\Livewire\DetailsComponent;
 use App\Http\Livewire\SearchComponent;
+use App\Http\Livewire\WishlistComponent;
 
 /*
 |--------------------------------------------------------------------------
@@ -74,6 +75,7 @@ Route::middleware(['auth:sanctum', 'verified','authadmin'])->group(function(){
 
     Route::get('/admin/home-categories',AdminHomeCategoryComponent::class)->name('admin.home-categories');
     Route::get('/admin.sale',AdminSaleComponent::class)->name('admin.sale');
+    Route::get('/wishlist',WishlistComponent::class)->name('product.wishlist');
     Route::get('/admin.contact_us',AdminContactComponent::class)->name('admin.contact');
 });
 

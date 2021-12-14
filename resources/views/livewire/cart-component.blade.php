@@ -19,11 +19,11 @@
 								<strong>Success</strong> {{ Session::get('success_msg') }}
 							</div>
 						@endif
-						@if(Cart::count() > 0)
-						
-						@foreach(Cart::content() as $iteam)
-							
-						
+						@if(Cart::instance('cart')->count() > 0)
+
+						@foreach(Cart::instance('cart')->content() as $iteam)
+
+
 						<li class="pr-cart-item">
 							<div class="product-image">
 								<figure><img src="{{ asset('assets/images/products') }}/{{ $iteam->model->image }}" alt=""></figure>
@@ -34,7 +34,7 @@
 							<div class="price-field produtc-price"><p class="price">{{ $iteam->model->regular_price }}</p></div>
 							<div class="quantity">
 								<div class="quantity-input">
-									<input type="text" name="product-quatity" value="{{ $iteam->qty }}" data-max="120" pattern="[0-9]*" >									
+									<input type="text" name="product-quatity" value="{{ $iteam->qty }}" data-max="120" pattern="[0-9]*" >
 									<a class="btn btn-increase" href="#" wire:click.prevent="increassQTY('{{ $iteam->rowId }}')"></a>
 									<a class="btn btn-reduce" href="#"wire:click.prevent="decreassQTY('{{ $iteam->rowId }}')"></a>
 								</div>
@@ -49,18 +49,18 @@
 						</li>
 						@endforeach
 						@else
-						<p><span>No iteam in Cart</span></p>	
-						@endif										
+						<p><span>No iteam in Cart</span></p>
+						@endif
 					</ul>
 				</div>
 
 				<div class="summary">
 					<div class="order-summary">
 						<h4 class="title-box">Order Summary</h4>
-						<p class="summary-info"><span class="title">Subtotal</span><b class="index">{{ Cart::subtotal() }}</b></p>
-						<p class="summary-info"><span class="title">Tax</span><b class="index">{{ Cart::tax() }}</b></p>
+						<p class="summary-info"><span class="title">Subtotal</span><b class="index">{{ Cart::instance('cart')->subtotal() }}</b></p>
+						<p class="summary-info"><span class="title">Tax</span><b class="index">{{ Cart::instance('cart')->tax() }}</b></p>
 						<p class="summary-info"><span class="title">Shipping</span><b class="index">Free Shipping</b></p>
-						<p class="summary-info total-info "><span class="title">Total</span><b class="index">{{ Cart::total() }}</b></p>
+						<p class="summary-info total-info "><span class="title">Total</span><b class="index">{{ Cart::instance('cart')->total() }}</b></p>
 					</div>
 					<div class="checkout-info">
 						<label class="checkbox-field">
@@ -79,7 +79,7 @@
 
 
 
-				
+
 					<div class="wrap-show-advance-info-box style-1 box-in-site">
 					<h3 class="title-box">Most Viewed Products</h3>
 					<div class="wrap-products">

@@ -44,7 +44,7 @@
                             <h2 class="product-name">{{ $product->name }}</h2>
                             <div class="short-desc">
                                 <ul>
-                                    {{ $product->short_description }}
+                                    {!! $product->short_description !!}
                                 </ul>
                             </div>
                             <div class="wrap-social">
@@ -52,7 +52,7 @@
                             </div>
                             @if($product->sale_price > 0 && $sale->status == 1 && $sale->sale_date > Carbon\Carbon::now())
                             <div class="wrap-price">
-                                <span class="product-price">{{ $product->sale_price }}</span>
+                                <span class="product-price">${{ $product->sale_price }}</span>
                                 <del><span class="product-price regprice">{{ $product->regular_price }}</span></del>
                             </div>
                             @else
@@ -91,7 +91,7 @@
 							<div class="tab-contents">
 								<div class="tab-content-item active" id="description">
 
-									{{ $product->desription }}
+									{!! $product->desription !!}
 								</div>
 								<div class="tab-content-item " id="add_infomation">
 									<table class="shop_attributes">
