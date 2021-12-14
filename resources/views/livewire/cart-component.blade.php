@@ -21,27 +21,28 @@
 						@endif
 						@if(Cart::instance('cart')->count() > 0)
 
-						@foreach(Cart::instance('cart')->content() as $iteam)
+						@foreach(Cart::instance('cart')->content() as $item)
 
 
 						<li class="pr-cart-item">
 							<div class="product-image">
-								<figure><img src="{{ asset('assets/images/products') }}/{{ $iteam->model->image }}" alt=""></figure>
+								<figure><img src="{{ asset('assets/images/products') }}/{{ $item->model->image }}" alt=""></figure>
 							</div>
 							<div class="product-name">
-								<a class="link-to-product" href="#">{{ $iteam->model->name }}</a>
+								<a class="link-to-product" href="#">{{ $item->model->name }}</a>
 							</div>
-							<div class="price-field produtc-price"><p class="price">{{ $iteam->model->regular_price }}</p></div>
+							<div class="price-field produtc-price"><p class="price">{{ $item->model->regular_price }}</p></div>
 							<div class="quantity">
 								<div class="quantity-input">
-									<input type="text" name="product-quatity" value="{{ $iteam->qty }}" data-max="120" pattern="[0-9]*" >
-									<a class="btn btn-increase" href="#" wire:click.prevent="increassQTY('{{ $iteam->rowId }}')"></a>
-									<a class="btn btn-reduce" href="#"wire:click.prevent="decreassQTY('{{ $iteam->rowId }}')"></a>
+									<input type="text" name="product-quatity" value="{{ $item->qty }}" data-max="120" pattern="[0-9]*" >
+									<a class="btn btn-increase" href="#" wire:click.prevent="increassQTY('{{ $item->rowId }}')"></a>
+									<a class="btn btn-reduce" href="#"wire:click.prevent="decreassQTY('{{ $item->rowId }}')"></a>
 								</div>
+                                <p class="text-center"><a href="#" wire:click.prevent="switchToSaveForLater('{{$item->rowId}}')">Save for Later</a></p>
 							</div>
-							<div class="price-field sub-total"><p class="price">{{ $iteam->subtotal }}</p></div>
+							<div class="price-field sub-total"><p class="price">{{ $item->subtotal }}</p></div>
 							<div class="delete">
-								<a href="#" wire:click.prevent="remove('{{ $iteam->rowId }}')" class="btn btn-delete" title="">
+								<a href="#" wire:click.prevent="remove('{{ $item->rowId }}')" class="btn btn-delete" title="">
 									<span>Delete from your cart</span>
 									<i class="fa fa-times-circle" aria-hidden="true"></i>
 								</a>
@@ -49,7 +50,7 @@
 						</li>
 						@endforeach
 						@else
-						<p><span>No iteam in Cart</span></p>
+						<p><span>No item in Cart</span></p>
 						@endif
 					</ul>
 				</div>
@@ -76,6 +77,45 @@
 				</div>
 
 
+                <div class="wrap-iten-in-cart">
+                    <h3 class="title-box" style="border-bottom:1px solid; padding-bottom:15px;">{{Cart::instance('saveForLater')->count()}}Save For Later</h3>
+					<h3 class="box-title">Products Name</h3>
+					<ul class="products-cart">
+
+						@if(Session::has('s_success_message'))
+							<div class="alert alert-success">
+								<strong>Success</strong> {{ Session::get('s_success_message') }}
+							</div>
+						@endif
+						@if(Cart::instance('saveForLater')->count() > 0)
+
+						@foreach(Cart::instance('saveForLater')->content() as $item)
+
+
+						<li class="pr-cart-item">
+							<div class="product-image">
+								<figure><img src="{{ asset('assets/images/products') }}/{{ $item->model->image }}" alt=""></figure>
+							</div>
+							<div class="product-name">
+								<a class="link-to-product" href="#">{{ $item->model->name }}</a>
+							</div>
+							<div class="price-field produtc-price"><p class="price">{{ $item->model->regular_price }}</p></div>
+							<div class="quantity">
+                                <p class="text-center"><a href="#" wire:click.prevent="moveToCart('{{$item->rowId}}')">Move to Cart</a></p>
+							</div>
+							<div class="delete">
+								<a href="#" wire:click.prevent="deleteFromSaveForLater('{{ $item->rowId }}')" class="btn btn-delete" title="">
+									<span>Delete from save for later</span>
+									<i class="fa fa-times-circle" aria-hidden="true"></i>
+								</a>
+							</div>
+						</li>
+						@endforeach
+						@else
+						<p><span>No item save for later</span></p>
+						@endif
+					</ul>
+				</div>
 
 
 
