@@ -97,6 +97,9 @@
 														<a title="Sale Setting" href="{{ route('admin.sale') }}">Sale Setting</a>
 													</li>
                                                     <li class="menu-item" >
+														<a title="All Coupon" href="{{ route('admin.coupon') }}">All Coupon</a>
+													</li>
+                                                    <li class="menu-item" >
 														<a title="Contact Message" href="{{ route('admin.contact') }}">Contact Message</a>
 													</li>
 													<li class="menu-item" >

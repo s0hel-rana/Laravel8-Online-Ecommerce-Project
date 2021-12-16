@@ -4,41 +4,48 @@
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <p><strong>Add new category</strong>
-                            <a class="btn btn-success pull-right" href="{{ route('admin.category') }}">All Category</a>
-                        </p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                Add new category
+                            </div>
+                            <div class="col-md-6">
+                                <a class="btn btn-success pull-right" href="{{ route('admin.category') }}">All Category</a>
+                            </div>
+                        </div>
                     </div>
                     <div class="panel-body">
-                        <div class="row">
-                            <div class="col-md-6 offset-md-3">
                                 @if(Session::has('seccess_msg'))
                                     <div class="alert alert-success" role="alert">
                                         {{ Session::get('seccess_msg') }}
                                     </div>
                                 @endif
-                                <form wire:submit.prevent="storeCategory">
+                                <form class="form-horizontal" wire:submit.prevent="storeCategory">
                                     <div class="form-group">
-                                        <label for="category">Category Name</label>
-                                        <input type="text" class="form-control" id="category" aria-describedby="emailHelp" placeholder="Category name"  wire:model='name' wire:keyup="generateSlug" required>
+                                        <label class="col-md-4 control-label">Category Name</label>
+                                        <div class="col-md-4">
+                                            <input type="text" class="form-control" id="category" aria-describedby="emailHelp" placeholder="Category name"  wire:model='name' wire:keyup="generateSlug" required>
+                                        </div>
 
                                     </div>
                                     <div class="form-group">
-                                        <label for="slug">Slug</label>
-                                        <input type="text" class="form-control" id="slug" aria-describedby="emailHelp" placeholder="Category slug" wire:model="slug">
+                                        <label class="col-md-4 control-label">Slug</label>
+                                        <div class="col-md-4">
+                                            <input type="text" class="form-control" id="slug" aria-describedby="emailHelp" placeholder="Category slug" wire:model="slug">
+                                        </div>
 
                                     </div>
                                     <div class="form-group">
-
-                                       <button type="submit" class="btn btn-primary">Submit</button>
+                                        <label class="col-md-4 control-label"></label>
+                                       <div class="col-md-4">
+                                           <button type="submit" class="btn btn-primary">Submit</button>
+                                        </div>
 
                                     </div>
 
                                 </form>
-                            </div>
+                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
